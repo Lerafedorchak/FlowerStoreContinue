@@ -1,5 +1,6 @@
 package com.example.demo;
 import com.example.demo.flower.store.Flower;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -9,20 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class }) @RestController
+@SpringBootApplication @RestController
 public class DemoApplication {
+    @Autowired
+    private String data;
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }
 
-    @RequestMapping
+
     @GetMapping
-    public static List<Flower> getFlowerList(Flower... flowers) {
-        return List.of(flowers);
-    }
-    @GetMapping
-    public  String hello(){
-        return "hello";
+    public String hello(){
+        return data;
     }
 }

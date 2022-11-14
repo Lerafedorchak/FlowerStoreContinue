@@ -1,9 +1,11 @@
 package com.example.demo.flower.store;
 
 import com.example.demo.items.Item;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 
 import javax.persistence.*;
 
@@ -12,17 +14,19 @@ import javax.persistence.*;
 @Getter
 @Entity
 @Table(name = "flower")
-@NoArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
 public class Flower extends Item {
-    @Id
-    @GeneratedValue
-    private double sepalLength;
+
     @Enumerated(EnumType.STRING)
     private FlowerColor color;
+    private double sepalLength;
     private double price;
     @Enumerated(EnumType.STRING)
     private FlowerType flowerType;
 
+    @Id
+    @GeneratedValue
+    private int id;
     public String getColor() {
         return color.toString();
     }

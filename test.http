@@ -1,7 +1,7 @@
-GET http://localhost:8080/flower/all
+GET http://localhost:8070/flower/all
 
 ###
-POST http://localhost:8080/flower/add
+POST http://localhost:8070/flower/add
 Content-Type: application/json
 
 {
